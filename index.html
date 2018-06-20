@@ -22,7 +22,7 @@
    		var onSuccess1 = function(data) {
                 	// Do something with the returning data
             		visitorID = data;
-			$("textarea#customerID").val("Customer ID: " + visitorID);
+			document.getElementById("customerID").innerHTML = "Customer ID: " + visitorID;
 
    		};
                 
@@ -62,7 +62,7 @@
  </style>
  </head>
  <body>
-  
+	 </br>
   <div id="customerID"></div>
   
 
