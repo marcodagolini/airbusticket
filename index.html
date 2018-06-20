@@ -11,24 +11,28 @@
 
   
   <script>
+	  
+	  $(document).ready(function() {
 
-   var SDK=lpTag.agentSDK;
-   SDK.init();
-   var visitorID;
+   		var SDK=lpTag.agentSDK;
+   		SDK.init();
+   		var visitorID;
    
-   var onSuccess1 = function(data) {
-                // Do something with the returning data
-            visitorID = data;
-			         $("textarea#customerID").val("Customer ID: " + visitorID);
+   		var onSuccess1 = function(data) {
+                	// Do something with the returning data
+            		visitorID = data;
+			$("textarea#customerID").val("Customer ID: " + visitorID);
 
-   ;
+   		};
                 
-   var onError1 = function(data) {
-        // Do something with the returning data
-        visitorID = null;
-   };
+   		var onError1 = function(data) {
+        		// Do something with the returning data
+        		visitorID = null;
+   		};
    
-   SDK.get('visitorInfo.visitorId', onSuccess1, onError1);
+   		SDK.get('visitorInfo.visitorId', onSuccess1, onError1);
+	   
+   	}
    
    </script>
 
