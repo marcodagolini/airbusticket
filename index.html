@@ -7,13 +7,28 @@
  
  
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+ <script src="https://lpcdn.lpsnmedia.net/webagent/client-SDK.min.js"></script>
+
   
   <script>
+
+   var SDK=lpTag.agentSDK;
+   SDK.init();
+   var visitorID;
    
-  var url_string = window.location.href
-var url = new URL(url_string);
-var c = url.searchParams.get("c");
-console.log(c);
+   var onSuccess1 = function(data) {
+                // Do something with the returning data
+            visitorID = data;
+			         $("textarea#customerID").val("Customer ID: " + visitorID);
+
+   ;
+                
+   var onError1 = function(data) {
+        // Do something with the returning data
+        visitorID = null;
+   };
+   
+   SDK.get('visitorInfo.visitorId', onSuccess1, onError1);
    
    </script>
 
@@ -42,6 +57,8 @@ console.log(c);
  </style>
  </head>
  <body>
+  
+  <div id="customerID"></div>
   
 
   
